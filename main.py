@@ -1,14 +1,22 @@
+
 import requests
 
-url = "https://api-nba-v1.p.rapidapi.com/players/statistics"
 
-querystring = {"id":"236","season":"2020"}
+API_KEY = 'G1HNCDQLS97VTIUR'
 
-headers = {
-	"X-RapidAPI-Key": "a07a9e7046msh29a34c2afef602ep18181ejsn56c05bf013f2",
-	"X-RapidAPI-Host": "api-nba-v1.p.rapidapi.com"
+
+STOCK_SYMBOL = "PSEC"
+STOCK_END_POINT = 'https://www.alphavantage.co/query?'
+
+stock_params = {
+    "function": "TIME_SERIES_DAILY_ADJUSTED",
+    "symbol": STOCK_SYMBOL,
+    "apikey": API_KEY
 }
 
-response = requests.request("GET", url, headers=headers, params=querystring).json()
+r = requests.get(STOCK_END_POINT, params = stock_params)
 
-print(response['player']['firstname'])
+data = r.json()["Time Series (Daily)"]
+data_list = [value for (key, value) in data.items()]
+
+print(data_list[0])
