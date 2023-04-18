@@ -2,7 +2,7 @@
 import requests
 
 
-API_KEY = 'G1HNCDQLS97VTIUR'
+API_KEY = '#insert ur api key'
 
 
 STOCK_SYMBOL = "PSEC"
