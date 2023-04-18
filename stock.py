@@ -26,5 +26,8 @@ data = r.json()["Time Series (Daily)"]
 data_list = [value for (key, value) in data.items()]
 yesterday_closing_data = data_list[0]
 day_prior_closing = data_list[1]
+# print(day_prior_closing)
+print("Data List")
+print(data_list)
+print("yesterday data")
 print(yesterday_closing_data)
-print(day_prior_closing)
